@@ -13,6 +13,7 @@
 	      <th scope="col">Price/Item</th>
 	      <th scope="col">Quantity</th>
 	      <th scope="col">Total</th>
+	      <th scope="col">Remove</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -21,9 +22,17 @@
 	    <tr>
 	      
 	      <td>{{$item->product->name}}</td>
-	      <td>Otto</td>
-	      <td>@mdo</td>
-	      <td>100</td>
+	      <td>{{$item->product->price}}.00</td>
+	      <td>{{$item->quantity}}</td>
+	      <td>{{$item->quantity * $item->product->price}}.00</td>
+	      <td>
+	      	<form action="/item/{{$item->id}}" method="POST">
+	      		{{ csrf_field() }}
+						{{--For DELETE, PATCH or PUT Requests --}}
+						{{ method_field('DELETE') }}
+	      		<button type="submit" class="btn btn-danger">X</button>
+					</form>
+	      </td>
 	    </tr>
 		@endforeach
 

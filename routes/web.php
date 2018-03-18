@@ -40,8 +40,15 @@ Route::get('/cart', [
 ]);
 
 
+Route::delete('/item/{id}', [
+    'as' => 'item.destroy',
+    'uses' => 'ItemController@destroy'
+]);
 
-
+Route::post('/item/{id}', [
+    'as' => 'item.add',
+    'uses' => 'ItemController@store'
+]);
 
 
 

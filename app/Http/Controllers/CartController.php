@@ -49,7 +49,7 @@ class CartController extends Controller
     public function show()
     {
         $user_id = Auth::id();
-        $user_cart = Cart::where('user_id', $user_id)->where('active', 0)->first();
+        $user_cart = Cart::where('user_id', $user_id)->where('status_id', 1)->first();
         $cart_items = Item::all()->where('cart_id', $user_cart->id);
 
         return view('cart.show')->withItems($cart_items);
@@ -88,4 +88,5 @@ class CartController extends Controller
     {
         //
     }
+
 }

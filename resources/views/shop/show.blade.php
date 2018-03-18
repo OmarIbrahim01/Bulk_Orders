@@ -18,19 +18,26 @@
 
         <div class="col-md-4">
           <h3 class="my-3">Product Details</h3>
-          <p>{!! $product->details !!}</p>
-          <h5 style="color: green; margin-bottom: 1px"><span style="color: black">Price: </span> ${{$product->price}} / Item</h5>
-          <small style="color: red;">Mininum Order is 500 Pieces</small>
+          <p>{{ $product->details }}</p>
+          <h5 margin-bottom: 1px">Price:  <span style="color: green;">${{$product->price}}</span> / Item</h5>
+
+          @if(isset($product->min_quantity))
+            <small style="color: red;">Mininum Order is {{$product->min_quantity}} Pieces</small>
+          @endif
 
           <div style="margin-top: 30px;">
-            <form>
+            <form action="/item/{{$product->id}}" method="POST">
               <div class="form-group ">
+                {{csrf_field()}}
                 <label for="exampleInputEmail1">Quantity</label>
-                <input type="number" class="form-control" id="" aria-describedby="" placeholder="Enter Quantity">
+                <input type="number" name='quantity' class="form-control" id="" aria-describedby="" placeholder="Quantity">
+                <input type="hidden" name='product_id' value="{{$product->id}}">
               </div>
               <button type="submit" class="btn btn-success">Add to Cart</button>
             </form>
           </div>
+
+        </div>
 
       </div>
       <!-- /.row -->

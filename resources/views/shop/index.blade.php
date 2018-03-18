@@ -7,10 +7,14 @@
 <div class="col-lg-3">
 
 <h1 class="my-4">Bulk Orders</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius</p>
+<br>
+<h3 style="margin-top: 97px">My Shopping Cart</h3>
 <div class="list-group">
-<a href="#" class="list-group-item">Category 1</a>
-<a href="#" class="list-group-item">Category 2</a>
-<a href="#" class="list-group-item">Category 3</a>
+  @foreach($items as $item) 
+  <a href="/shop/{{$item->product->id}}" class="list-group-item">{{$item->product->name}} <span style="color: black; font-size: 12px;">({{$item->quantity}})</span><span style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00</span></a>
+  @endforeach
+  <h5 href="#" class="list-group-item">Total: <span style="color: darkred">${{$total}}</span></h5>
 </div>
 
 </div>
@@ -60,7 +64,16 @@
       <p class="card-text">{{substr($product->details, 0, 20)}}</p>
     </div>
     <div class="card-footer">
-      <a href="#" class="btn btn-success">Add to Cart</a>
+      <form action="/item/{{$product->id}}" method="POST">
+              <div class="form-group ">
+                {{csrf_field()}}
+                <input type="hidden" name='product_id' value="{{$product->id}}">
+                
+                <input type="number" name='quantity' class="form-control" id="" aria-describedby="" placeholder="Quantity">
+                
+              </div>
+              <button type="submit" class="btn btn-success">Add to Cart</button>
+            </form>
     </div>
   </div>
 </div>
