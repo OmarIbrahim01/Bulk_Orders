@@ -11,10 +11,10 @@
     <title>Shop Homepage - Start Bootstrap Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/shop-homepage.css" rel="stylesheet">
+    <link href="{{ asset('css/shop-homepage.css') }}" rel="stylesheet">
 
   </head>
 
@@ -34,15 +34,47 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+            
+            @guest
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('register') }}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">Login</a>
+            </li>
+            @else
+
+
+            
+
             <li class="nav-item">
               <a class="nav-link" href="/cart">My Shopping Cart</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cart">About</a>
+
+
+
+            <li class="nav-item dropdown">
+
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{Auth::user()->name}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/my_orders">My Orders</a>
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();" class="dropdown-item">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+
+              </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
+            @endguest
+             
+        
           </ul>
         </div>
       </div>
@@ -71,8 +103,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('bootstrap/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   </body>
 

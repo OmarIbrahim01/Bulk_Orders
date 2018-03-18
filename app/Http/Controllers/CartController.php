@@ -37,7 +37,19 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart = Cart::findOrFail($request->cart_id);
+        $cart->status_id = 2;
+        $cart->name = $request->name;
+        $cart->company = $request->company;
+        $cart->country = $request->country;
+        $cart->city = $request->city;
+        $cart->address = $request->address;
+        $cart->shipping_address = $request->shipping_address;
+        $cart->phone = $request->phone;
+        $cart->phone2 = $request->phone2;
+        $cart->email = $request->email;
+        $cart->update();
+        return redirect('/my_orders');
     }
 
     /**
@@ -50,9 +62,22 @@ class CartController extends Controller
     {
         $user_id = Auth::id();
         $user_cart = Cart::where('user_id', $user_id)->where('status_id', 1)->first();
+        
         $cart_items = Item::all()->where('cart_id', $user_cart->id);
+        $total = 0;
+        foreach ($cart_items as $item) {
+            $total += $item->product->price * $item->quantity; 
+        }
 
-        return view('cart.show')->withItems($cart_items);
+        return view('cart.show')->withItems($cart_items)->withTotal($total)->withCart($user_cart);
+    }
+
+    public function my_orders()
+    {
+        $user_id = Auth::id();
+        $user_cart = Cart::where('user_id', $user_id)->where('status_id', '>=', 2)->get();
+
+        return view('cart.my_orders')->withCarts($user_cart);
     }
 
     /**

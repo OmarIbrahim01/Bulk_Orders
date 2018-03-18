@@ -39,6 +39,17 @@ Route::get('/cart', [
     'uses' => 'CartController@show'
 ]);
 
+Route::post('/cart', [
+    'as' => 'cart.store',
+    'uses' => 'CartController@store'
+]);
+
+Route::get('/my_orders', [
+    'as' => 'cart.orders',
+    'uses' => 'CartController@my_orders'
+]);
+
+
 
 Route::delete('/item/{id}', [
     'as' => 'item.destroy',

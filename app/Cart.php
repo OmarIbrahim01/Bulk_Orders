@@ -13,7 +13,7 @@ class Cart extends Model
 
     public function status()
     {
-    	return $this->belongsTo('App\Status');
+    	return $this->belongsTo('App\OrderStatus');
     }
 
      public function item()

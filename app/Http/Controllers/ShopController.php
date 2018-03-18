@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Item;
+use App\Cart;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
@@ -16,14 +17,30 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $user_cart_id = Auth::user()->cart->where('status_id', '1')->first();
-        $items = Item::all()->where('cart_id', $user_cart_id->id);
-        $total = 0;
-        foreach($items as $item){
-            $total = $total + $item->product->price * $item->quantity;
-        }
         $products = Product::all();
-        return view('shop.index')->withProducts($products)->withCart($user_cart_id)->withItems($items)->withTotal($total);
+
+        if(Auth::check()){
+            $user_cart_id = Auth::user()->cart->where('status_id', '1')->first();
+            if(empty($user_cart_id)){
+                $cart = new Cart;
+                $cart->user_id = Auth::id();
+                $cart->status_id = 1;
+                $cart->save();
+                $user_cart_id = $cart;
+            }
+            $items = Item::all()->where('cart_id', $user_cart_id->id);
+            $total = 0;
+            foreach($items as $item){
+                $total = $total + $item->product->price * $item->quantity;
+            }
+            return view('shop.index')->withProducts($products)->withCart($user_cart_id)->withItems($items)->withTotal($total);
+
+        }else {
+
+            return view('shop.index')->withProducts($products);
+
+        }
+
     }
 
     /**

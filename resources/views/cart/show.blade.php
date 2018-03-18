@@ -5,6 +5,7 @@
 <div class="container">
 	<div class="row">	      
 	      <h1 class="my-4">My Shopping Cart</h1>
+	@if(count($items) > 0)
 	<table class="table table-hover">
 	  <thead>
 	    <tr>
@@ -39,6 +40,7 @@
 	  </tbody>
 	</table>
 
+
 	</div>
 	<!-- /.row -->
 </div>
@@ -48,57 +50,60 @@
   		<div class="row">
     		<div class="col">
 				<div class="card">
-				  <h5 class="card-header">Featured</h5>
+				  <h5 class="card-header">Order #{{$cart->id}}</h5>
 				  <div class="card-body">
-				    <h5 class="card-title">Special title treatment</h5>
-				    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+				    <h5 class="card-title">SubTotal: <span style="color: darkred">${{$total}}</span></h5>
+				    <p class="card-text">Shipping cost is not included.</p>
 				  </div>
 				</div>
+				<p style="margin: 40px auto;">Please fill in the form and submit the order and we will review it and contact you, Thank you for choosing us.</p>
 			</div>
 			<div class="col">
-				<form>
+				<form action="/cart" method="POST">
+					{{csrf_field()}}
+					<input type="hidden" name="cart_id" value="{{$cart->id}}">
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Name</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				   
 				  </div><div class="form-group">
-				    <label for="exampleInputEmail1">Company Name</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <label for="exampleInputEmail1">Company</label>
+				    <input type="text" name="company" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Country</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="country" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">City</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Main Address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				   
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Shipping Address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="shipping_address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				   
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Phone</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Phone 2</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text"  name="phone2" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				    
 				  </div>
 				  
@@ -108,4 +113,13 @@
 		</div>
 	</div>
 </section>
+@else
+<h2 style="color: grey">Your Shopping Cart Is Empty Please Add Items To Your Shopping Cart</h2>
+<a href="/" class="btn btn-success" style="margin: 20px auto; margin-bottom: 620px;">Browse Products</a>
+@endif
+
+
+
+
+
 @endsection
