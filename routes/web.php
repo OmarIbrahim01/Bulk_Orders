@@ -11,10 +11,12 @@
 |
 */
 
+
 Route::get('/', 'ShopController@index');
 
 
 
+//Shop Routes
 Route::get('/shop', [
     'as' => 'shop.index',
     'uses' => 'ShopController@index'
@@ -26,40 +28,52 @@ Route::get('/shop/{id}', [
 ]);
 
 
-Route::post('/add_to_cart', [
-    'as' => 'add_to_cart',
-    'uses' => 'CartController@store'
-]);
 
-
-
-
+//Cart Routes
 Route::get('/cart', [
     'as' => 'cart.show',
     'uses' => 'CartController@show'
-]);
+])->middleware('auth');
 
 Route::post('/cart', [
     'as' => 'cart.store',
     'uses' => 'CartController@store'
-]);
-
-Route::get('/my_orders', [
-    'as' => 'cart.orders',
-    'uses' => 'CartController@my_orders'
-]);
+])->middleware('auth');
 
 
+
+//Cart Items Routes
+Route::post('/item/{id}', [
+    'as' => 'item.add',
+    'uses' => 'ItemController@store'
+])->middleware('auth');
 
 Route::delete('/item/{id}', [
     'as' => 'item.destroy',
     'uses' => 'ItemController@destroy'
-]);
+])->middleware('auth');
 
-Route::post('/item/{id}', [
-    'as' => 'item.add',
-    'uses' => 'ItemController@store'
-]);
+
+
+//MyOrders Routes
+Route::get('/my_orders', [
+    'as' => 'cart.orders',
+    'uses' => 'CartController@my_orders'
+])->middleware('auth');
+
+
+
+
+//Admin Routes
+Route::get('/admin', [
+    'as' => 'admin.orders',
+    'uses' => 'AdminController@orders'
+])->middleware('auth');
+
+Route::get('/admin/orders', [
+    'as' => 'admin.orders',
+    'uses' => 'AdminController@orders'
+])->middleware('auth');
 
 
 

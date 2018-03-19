@@ -38,6 +38,12 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $cart = Cart::findOrFail($request->cart_id);
+
+        $total = 0;
+        foreach($cart->items as $item){
+            $total += $item->product->price * $item->quantity;
+        }
+        $cart->total = $total;
         $cart->status_id = 2;
         $cart->name = $request->name;
         $cart->company = $request->company;

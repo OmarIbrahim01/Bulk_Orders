@@ -16,7 +16,7 @@ class Cart extends Model
     	return $this->belongsTo('App\OrderStatus');
     }
 
-     public function item()
+     public function items()
     {
     	return $this->hasMany('App\Item');
     }

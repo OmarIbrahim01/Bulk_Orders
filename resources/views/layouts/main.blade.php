@@ -30,17 +30,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home
+              <a class="nav-link" href="/"><i class="fas fa-home"></i>
+
+ Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             
             @guest
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Register</a>
+              <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i>
+
+Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">Login</a>
+              <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>
+
+ Login</a>
             </li>
             @else
 
@@ -48,7 +54,7 @@
             
 
             <li class="nav-item">
-              <a class="nav-link" href="/cart">My Shopping Cart</a>
+              <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i> My Shopping Cart</a>
             </li>
 
 
@@ -56,7 +62,7 @@
             <li class="nav-item dropdown">
 
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{Auth::user()->name}}
+                <i class="fas fa-user"></i> {{Auth::user()->name}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/my_orders">My Orders</a>
@@ -80,6 +86,15 @@
       </div>
     </nav>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <!-- Page Content -->
     <div class="container">
 
@@ -105,6 +120,9 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('bootstrap/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('bootstrap/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
 
   </body>
 

@@ -4,7 +4,7 @@
 <section>
 <div class="container">
 	<div class="row">	      
-	      <h1 class="my-4">My Shopping Cart</h1>
+	      <h1 class="my-4"><i class="fas fa-shopping-cart"></i> My Shopping Cart</h1>
 	@if(count($items) > 0)
 	<table class="table table-hover">
 	  <thead>
@@ -22,17 +22,19 @@
 	  	@foreach($items as $item)
 	    <tr>
 	      
-	      <td>{{$item->product->name}}</td>
-	      <td>{{$item->product->price}}.00</td>
-	      <td>{{$item->quantity}}</td>
-	      <td>{{$item->quantity * $item->product->price}}.00</td>
-	      <td>
-	      	<form action="/item/{{$item->id}}" method="POST">
-	      		{{ csrf_field() }}
-						{{--For DELETE, PATCH or PUT Requests --}}
-						{{ method_field('DELETE') }}
-	      		<button type="submit" class="btn btn-danger">X</button>
-					</form>
+	    	<td>{{$item->product->name}}</td>
+	      	<td>{{$item->product->price}}.00</td>
+	      	<td>{{$item->quantity}}</td>
+	      	<td>{{$item->quantity * $item->product->price}}.00</td>
+	      	<td>
+
+			<a href="/item/{{$item->id}}" onclick="event.preventDefault(); document.getElementById('cancel_item').submit();"><i class="fas fa-times-circle" style="color: red; font-size: 20px;"></i>
+
+</a>
+	        <form id="cancel_item" action="/item/{{$item->id}}" method="POST" style="display: none;">
+	            {{ csrf_field() }}
+	            {{ method_field('DELETE') }}
+	        </form>					
 	      </td>
 	    </tr>
 		@endforeach
@@ -107,7 +109,7 @@
 				    
 				  </div>
 				  
-				  <button type="submit" class="btn btn-primary">Request Order</button>
+				  <button type="submit" class="btn btn-success">Submit Order</button>
 				</form>
 			</div>
 		</div>

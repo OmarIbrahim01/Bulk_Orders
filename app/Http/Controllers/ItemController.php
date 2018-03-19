@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Item;
 use App\Cart;
+use App\Product;
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -37,6 +38,11 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        $min_qty = Product::find($request->product_id)->min_quantity;
+        $request->validate([                
+                'quantity' => 'required|numeric|min:'.$min_qty              
+            ]);
+
         $user_cart_id = Auth::user()->cart->where('status_id', '1')->first();
         if(empty($user_cart_id)){
             $cart = new Cart;
