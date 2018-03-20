@@ -87,12 +87,26 @@ Register</a>
     </nav>
 
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger alert-dismissible fade show" style="margin: 17px 20.8% 0px;">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show" style="margin: 17px 20.8% 0px;">
+            <ul>
+              <li>{{ session('message') }}</li>
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     @endif
     <!-- Page Content -->

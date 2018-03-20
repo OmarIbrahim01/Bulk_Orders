@@ -66,46 +66,47 @@
 					<input type="hidden" name="cart_id" value="{{$cart->id}}">
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Name</label>
-				    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-				   
-				  </div><div class="form-group">
+				    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('name')}}" required>
+				    				   
+				  </div>
+				  <div class="form-group">
 				    <label for="exampleInputEmail1">Company</label>
-				    <input type="text" name="company" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="company" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('company')}}" required>
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Country</label>
-				    <input type="text" name="country" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="country" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('country')}}" required>
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">City</label>
-				    <input type="text" name="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('city')}}" required>
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Main Address</label>
-				    <input type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('address')}}">
 				   
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Shipping Address</label>
-				    <input type="text" name="shipping_address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="shipping_address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('shipping_address')}}" required>
 				   
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Phone</label>
-				    <input type="text" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('phone')}}" required>
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Phone 2</label>
-				    <input type="text"  name="phone2" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="text"  name="phone2" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('phone2')}}">
 				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{old('email')}}" required>
 				    
 				  </div>
 				  

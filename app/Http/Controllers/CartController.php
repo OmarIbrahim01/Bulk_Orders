@@ -43,6 +43,19 @@ class CartController extends Controller
         foreach($cart->items as $item){
             $total += $item->product->price * $item->quantity;
         }
+
+        $request->validate([                
+                'name' => 'required',
+                'company' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'shipping_address' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'name' => 'required',
+                'name' => 'required'        
+            ]);
+
         $cart->total = $total;
         $cart->status_id = 2;
         $cart->name = $request->name;

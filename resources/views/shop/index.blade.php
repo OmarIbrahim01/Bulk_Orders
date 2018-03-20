@@ -4,7 +4,7 @@
 
 <div class="row">
 
-<div class="col-lg-3">
+<div class="col-lg-3" style="margin-bottom: 45px;">
 
 <h1 class="my-4">Bulk Orders</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius</p>
@@ -20,8 +20,8 @@
   @endauth
   @guest
     <p style="color: grey">Please Register or Login To View Shopping Cart</p>
-    <a href="#" class="btn btn-secondary" style="margin-right: 100px">Login</a>
-    <a href="#" class="btn btn-secondary" style="margin-right: 100px; margin-top: 10px">Register</a>
+    <a href="/login" class="btn btn-secondary" style="margin-right: 100px">Login</a>
+    <a href="/register" class="btn btn-secondary" style="margin-right: 100px; margin-top: 10px">Register</a>
   @endguest
 
 </div>
@@ -70,16 +70,20 @@
       @endif
     </div>
     <div class="card-footer">
+      @auth
       <form action="/item/{{$product->id}}" method="POST">
-              <div class="form-group ">
-                {{csrf_field()}}
-                <input type="hidden" name='product_id' value="{{$product->id}}">
-                
-                <input type="number" name='quantity' class="form-control" id="" aria-describedby="" placeholder="Quantity">
-                
-              </div>
-              <button type="submit" class="btn btn-success"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-            </form>
+        <div class="form-group ">
+          {{csrf_field()}}
+          <input type="hidden" name='product_id' value="{{$product->id}}">
+          
+          <input type="number" name='quantity' class="form-control" id="" aria-describedby="" placeholder="Quantity">
+          
+        </div>
+        <button type="submit" class="btn btn-success"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+      </form>
+      @else
+        <a href="/login" class="btn btn-success"><i class="fas fa-cart-plus"></i> Add to Cart</a>
+      @endauth
     </div>
   </div>
 </div>

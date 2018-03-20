@@ -13,7 +13,9 @@
       <div class="row">
 
         <div class="col-md-7">
-          <img class="img-fluid" src="{{$product->main_image_path}}" alt="">
+          <a href="{{$product->main_image_path}}">
+            <img class="img-fluid" src="{{$product->main_image_path}}" alt="">
+          </a>
         </div>
 
         <div class="col-md-4">
@@ -26,6 +28,7 @@
           @endif
 
           <div style="margin-top: 30px;">
+            @auth
             <form action="/item/{{$product->id}}" method="POST">
               <div class="form-group ">
                 {{csrf_field()}}
@@ -35,6 +38,9 @@
               </div>
               <button type="submit" class="btn btn-success">Add to Cart</button>
             </form>
+            @else
+            <a href="/login" class="btn btn-success">Add to Cart</a>
+            @endauth
           </div>
 
         </div>
@@ -43,34 +49,19 @@
       <!-- /.row -->
 
       <!-- Related Projects Row -->
+      @if(!empty($product->images))
       <h3 class="my-4">Product Images</h3>
 
       <div class="row" style="margin-bottom: 50px">
 
+        @foreach($product->images as $image)
         <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          <a href="{{$image->path}}">
+            <img class="img-fluid" src="{{$image->path}}" alt="">
           </a>
         </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
-
+        @endforeach
+        @endif
       </div>
       <!-- /.row -->
 

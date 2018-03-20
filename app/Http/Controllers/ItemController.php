@@ -39,6 +39,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $min_qty = Product::find($request->product_id)->min_quantity;
+        
         $request->validate([                
                 'quantity' => 'required|numeric|min:'.$min_qty              
             ]);
@@ -57,6 +58,8 @@ class ItemController extends Controller
         $item->product_id = $request->product_id;
         $item->quantity = $request->quantity;
         $item->save();
+
+        session()->flash('message', 'Item Added to Shopping Cart Successfully!');
 
         return back();
     }
