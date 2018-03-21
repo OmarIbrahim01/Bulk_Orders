@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 20, 2018 at 03:06 PM
+-- Generation Time: Mar 21, 2018 at 02:27 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -46,13 +46,16 @@ CREATE TABLE IF NOT EXISTS `carts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `carts`
 --
 
 INSERT INTO `carts` (`id`, `user_id`, `total`, `name`, `company`, `country`, `city`, `address`, `shipping_address`, `phone`, `phone2`, `email`, `status_id`, `created_at`, `updated_at`) VALUES
+(9, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:35:27', '2018-03-21 06:35:27'),
+(10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:36:42', '2018-03-21 06:36:42'),
+(8, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:35:05', '2018-03-21 06:35:05'),
 (7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-19 07:59:45', '2018-03-19 07:59:45'),
 (5, 1, 12373800, 'Omar', 'Reyanaa', 'Egypt', 'Cairo', 'qweqweqwe', 'asdasdsad', '32161261', NULL, 'omar@live.com', 2, '2018-03-19 06:53:48', '2018-03-19 06:53:57'),
 (6, 1, 73800, 'Ibrahim', 'Reyana', 'UAE', 'Dubai', 'qweqweqwe', 'asdasdasd', '21551', NULL, 'omar@live.com', 2, '2018-03-19 06:58:11', '2018-03-19 07:59:42');
@@ -72,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `items`
@@ -89,10 +92,7 @@ INSERT INTO `items` (`id`, `cart_id`, `product_id`, `quantity`, `created_at`, `u
 (16, 5, 1, 123123, '2018-03-19 06:53:51', '2018-03-19 06:53:51'),
 (17, 5, 2, 123, '2018-03-19 06:53:53', '2018-03-19 06:53:53'),
 (18, 6, 1, 123, '2018-03-19 07:59:36', '2018-03-19 07:59:36'),
-(19, 6, 2, 123, '2018-03-19 07:59:38', '2018-03-19 07:59:38'),
-(34, 7, 1, 600, '2018-03-20 12:42:26', '2018-03-20 12:42:26'),
-(33, 7, 1, 5000, '2018-03-20 06:38:39', '2018-03-20 06:38:39'),
-(32, 7, 1, 5000, '2018-03-20 06:17:51', '2018-03-20 06:17:51');
+(19, 6, 2, 123, '2018-03-19 07:59:38', '2018-03-19 07:59:38');
 
 -- --------------------------------------------------------
 
@@ -170,35 +170,36 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `details` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dimensions` text COLLATE utf8mb4_unicode_ci,
+  `thickness` text COLLATE utf8mb4_unicode_ci,
+  `weight` text COLLATE utf8mb4_unicode_ci,
   `price` int(11) NOT NULL,
   `min_quantity` int(11) DEFAULT NULL,
   `main_image_path` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `details`, `price`, `min_quantity`, `main_image_path`, `created_at`, `updated_at`) VALUES
-(1, 'A4 Maqutte', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It use', 100, 500, '/img/a4/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
-(2, 'A3 Maqutte', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It use', 500, 100, '/img/a3/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
-(3, 'A2 Maqutte', 'asdasdasd', 100, 500, 'img/a2/main.jpg', NULL, NULL),
-(4, 'A0 Maqutte', 'asdasdasd', 100, 100, '/img/a0/main.jpg', NULL, NULL),
-(5, 'Medal Small', 'qweqwe', 100, 100, '/img/medal_small/main.jpg', NULL, NULL),
-(6, 'Medal Medium', 'qwewqe', 122, 1212, 'img/medal_medium/main.jpg', NULL, NULL),
-(7, 'A2 Maqutte', 'asdasdasd', 100, 500, 'img/a2/main.jpg', NULL, NULL),
-(8, 'A0 Maqutte', 'asdasdasd', 100, 100, '/img/a0/main.jpg', NULL, NULL),
-(9, 'Medal Small', 'qweqwe', 100, 100, '/img/medal_small/main.jpg', NULL, NULL),
-(10, 'Medal Medium', 'qwewqe', 122, 1212, 'img/medal_medium/main.jpg', NULL, NULL),
-(11, 'Medal Large', 'qweqwe', 122, 122, '/img/medal_large/main.jpg', NULL, NULL),
-(12, 'Name Tag', 'asdasd', 122, 122, '/img/name_tag/main.jpg', NULL, NULL),
-(13, 'Coaster', 'qweqeqwe', 122, 122, '/img/coaster/main.jpg', NULL, NULL),
-(14, '1.8M Maqutte', 'qweqeqwe', 122, 122, '/img/1.8m/main.jpg', NULL, NULL),
-(15, '1.8M 3D Maqutte', 'asdasd', 122, 122, '/img/1.8m_3d/main.jpg', NULL, NULL),
-(16, 'A0 3D Maqutte', 'asdasd', 222, 222, '/img/a0_3d/main.jpg', NULL, NULL);
+INSERT INTO `products` (`id`, `name`, `details`, `dimensions`, `thickness`, `weight`, `price`, `min_quantity`, `main_image_path`, `created_at`, `updated_at`) VALUES
+(1, 'A4 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '21x29.7', '12', NULL, 100, 1000, '/img/a4/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
+(2, 'A3 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '29.7x42', '12', NULL, 500, 1000, '/img/a3/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
+(3, 'A2 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '40x60', '12', NULL, 100, 1000, '/img/a2/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(4, 'A0 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 100, 1000, '/img/a0/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(5, 'Medal Small', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '6x9', '3', NULL, 100, 1000, '/img/medal_small/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(6, 'Medal Medium', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '7x10.5', '3', NULL, 122, 1000, '/img/medal_medium/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(7, 'Medal Large', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x12', '3', NULL, 122, 1000, '/img/medal_large/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(8, 'Name Tag', 'Wooden name-tag cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x4', '3', NULL, 122, 1000, '/img/name_tag/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(9, 'Coaster', 'Wooden mug-coaster with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '9x9', '3', NULL, 122, 1000, '/img/coaster/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(10, '1.8M Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 122, 1000, '/img/1.8m/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(11, '1.8M 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 122, 1000, '/img/1.8m_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(12, 'A0 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 222, 1000, '/img/a0_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(17, 'A4 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '21x29.7', '12', NULL, 150, 1000, '/img/a4_puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(18, 'A3 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '29.7x42', '12', NULL, 300, 1000, '/img/a3_puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -214,14 +215,52 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `product_images`
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `path`, `created_at`, `updated_at`) VALUES
-(1, 1, '/img/a4/1.jpg', NULL, NULL);
+(1, 1, '/img/a4/1.jpg', NULL, NULL),
+(2, 1, '/img/a4/2.jpg', NULL, NULL),
+(3, 1, '/img/a4/3.jpg', NULL, NULL),
+(4, 2, '/img/a3/1.jpg', NULL, NULL),
+(5, 2, '/img/a3/2.jpg', NULL, NULL),
+(6, 3, '/img/a2/1.jpg', NULL, NULL),
+(7, 3, '/img/a2/2.jpg', NULL, NULL),
+(8, 3, '/img/a2/3.jpg', NULL, NULL),
+(9, 4, '/img/a0/1.jpg', NULL, NULL),
+(10, 4, '/img/a0/2.jpg', NULL, NULL),
+(11, 4, '/img/a0/3.jpg', NULL, NULL),
+(12, 5, '/img/medal_small/1.jpg', NULL, NULL),
+(13, 5, '/img/medal_small/2.jpg', NULL, NULL),
+(14, 5, '/img/medal_small/3.jpg', NULL, NULL),
+(15, 5, '/img/medal_small/4.jpg', NULL, NULL),
+(16, 5, '/img/medal_small/5.jpg', NULL, NULL),
+(17, 5, '/img/medal_small/6.jpg', NULL, NULL),
+(18, 6, '/img/medal_medium/1.jpg', NULL, NULL),
+(19, 6, '/img/medal_medium/2.jpg', NULL, NULL),
+(20, 6, '/img/medal_medium/3.jpg', NULL, NULL),
+(21, 6, '/img/medal_medium/4.jpg', NULL, NULL),
+(22, 6, '/img/medal_medium/5.jpg', NULL, NULL),
+(23, 6, '/img/medal_medium/6.jpg', NULL, NULL),
+(24, 7, '/img/medal_large/1.jpg', NULL, NULL),
+(25, 7, '/img/medal_large/2.jpg', NULL, NULL),
+(26, 7, '/img/medal_large/3.jpg', NULL, NULL),
+(27, 7, '/img/medal_large/4.jpg', NULL, NULL),
+(28, 7, '/img/medal_large/5.jpg', NULL, NULL),
+(29, 7, '/img/medal_large/6.jpg', NULL, NULL),
+(30, 8, '/img/name_tag/1.jpg', NULL, NULL),
+(31, 9, '/img/coaster/1.jpg', NULL, NULL),
+(32, 9, '/img/coaster/2.jpg', NULL, NULL),
+(74, 11, '/img/1.8m_3d/2.jpg', NULL, NULL),
+(76, 17, '/img/a4_puzzle/1.jpg', NULL, NULL),
+(77, 18, '/img/a3_puzzle/1.jpg', NULL, NULL),
+(71, 12, '/img/a0_3d/2.jpg', NULL, NULL),
+(73, 11, '/img/1.8m_3d/1.jpg', NULL, NULL),
+(72, 12, '/img/a0_3d/3.jpg', NULL, NULL),
+(70, 12, '/img/a0_3d/1.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -246,14 +285,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `company`, `country`, `address`, `phone`, `mobile`, `email`, `password`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Omar', 'Reyana', 'Egypt', 'alfnanfveajnfae', '1231231232133', NULL, 'omar@live.com', '$2y$10$4KRg.M58YhmjCQFYEQubYu9i9v0NIdfXs/QsNF9b6rN6rzPa6xgbm', 0, 'CZwbuHRrr3NDuuQSVn6nFbBpRx3u4qwuvpdsis2WX7MxE2MLe47q88g78hSY', NULL, NULL),
+(1, 'Omar', 'Reyana', 'Egypt', 'alfnanfveajnfae', '1231231232133', NULL, 'omar@live.com', '$2y$10$4KRg.M58YhmjCQFYEQubYu9i9v0NIdfXs/QsNF9b6rN6rzPa6xgbm', 0, 'IVq7XtwwaBUiJYDO9XHruXGfwZukFaQttnmGzUSJ3IjPfy41ODvRF4M3iWdZ', NULL, NULL),
 (2, 'Jumbo', 'Reyanaad', 'Egypty', '22a;i', '01111111111111', '090990909099099', 'jumbo@live.com', '$2y$10$VrJgKyOu.YeHik73G9ng..tLsTXx7QU5KhPCbqUQJtn35RNe2SB1i', 0, 'QbecRxiZTDkkKNVvceFEaUYOhluFQFdDeNfhdVFagzBEeOlIcFcQssF79uFz', '2018-03-18 07:25:42', '2018-03-18 07:25:42');
 COMMIT;
 
