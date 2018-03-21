@@ -17,6 +17,9 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('details');
+            $table->text('dimensions');
+            $table->text('thickness');
+            $table->text('weight');
             $table->integer('price');
             $table->integer('min_quantity')->nullable();
             $table->text('main_image_path');

@@ -19,8 +19,15 @@
         </div>
 
         <div class="col-md-4">
-          <h3 class="my-3">Product Details</h3>
+          <h3 class="my-3">Details</h3>
           <p>{{ $product->details }}</p>
+          <p style="font-weight: bold;">Dimensions: <span style="font-weight: normal;">{{$product->dimensions}}  cm</span></p>
+          <p style="font-weight: bold;">Thickness: <span style="font-weight: normal;">{{$product->thickness}}  mm</span></p>
+          @if(!empty($product->weight))
+          <p style="font-weight: bold;">Weight: <span style="font-weight: normal;">{{$product->weight}}  mm</span></p>
+          @endif
+
+
           <h5 margin-bottom: 1px">Price:  <span style="color: green;">${{$product->price}}</span> / Item</h5>
 
           @if(isset($product->min_quantity))
@@ -36,7 +43,7 @@
                 <input type="number" name='quantity' class="form-control" id="" aria-describedby="" placeholder="Quantity">
                 <input type="hidden" name='product_id' value="{{$product->id}}">
               </div>
-              <button type="submit" class="btn btn-success">Add to Cart</button>
+              <button type="submit" class="btn btn-success"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             </form>
             @else
             <a href="/login" class="btn btn-success">Add to Cart</a>
@@ -50,7 +57,7 @@
 
       <!-- Related Projects Row -->
       @if(!empty($product->images))
-      <h3 class="my-4">Product Images</h3>
+      <h3 class="my-4">Images</h3>
 
       <div class="row" style="margin-bottom: 50px">
 

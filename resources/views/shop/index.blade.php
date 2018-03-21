@@ -6,15 +6,15 @@
 
 <div class="col-lg-3" style="margin-bottom: 45px;">
 
-<h1 class="my-4">Bulk Orders</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius</p>
+<h1 class="my-4" style="text-align: center; margin-top: -15px">Cartoonize Bulk Orders</h1>
+<p style="text-align: center;">We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
 <br>
 
-<h3 style="margin-top: 97px">My Shopping Cart</h3>
+<h3 style="margin-top: 97px"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
 <div class="list-group">
   @auth
     @foreach($items as $item) 
-    <a href="/shop/{{$item->product->id}}" class="list-group-item">{{$item->product->name}} <span style="color: black; font-size: 12px;">({{$item->quantity}})</span><span style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00</span></a>
+    <a href="/shop/{{$item->product->id}}" class="list-group-item"><i class="fas fa-caret-right"></i> {{$item->product->name}}<span style="color: black; font-size: 12px;">({{$item->quantity}})</span><span style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00</span></a>
     @endforeach
     <h5 href="#" class="list-group-item">Total: <span style="color: darkred">${{$total}}</span></h5>
   @endauth
@@ -64,7 +64,7 @@
         <a href="/shop/{{$product->id}}">{{$product->name}}</a>
       </h4>
       <h5>${{$product->price}}</h5>
-      <p class="card-text">{{substr($product->details, 0, 20)}}</p>
+      {{-- <p class="card-text">{{substr($product->details, 0, 20)}}</p> --}}
       @if(isset($product->min_quantity))
         <small style="color: darkred;">Mininum Order is {{$product->min_quantity}} Pieces</small>
       @endif

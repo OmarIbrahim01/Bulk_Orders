@@ -23,7 +23,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/">Cartoonize Bulk Orders</a>
+        <a class="navbar-brand" href="/" style="font-weight: 500;"><img src="/img/logo.png" alt="" width="80" style="margin-bottom: 4px;"> Bulk Orders</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -87,7 +87,7 @@ Register</a>
     </nav>
 
     @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible fade show" style="margin: 17px 20.8% 0px;">
+        <div class="alert alert-danger alert-dismissible fade show" style="margin: 17px 20.8% 0px; padding-bottom: 0;">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -100,7 +100,7 @@ Register</a>
     @endif
 
     @if (session()->has('message'))
-        <div class="alert alert-success alert-dismissible fade show" style="margin: 17px 20.8% 0px;">
+        <div class="alert alert-success alert-dismissible fade show" style="margin: 17px 20.8% 0px; padding-bottom: 0;">
             <ul>
               <li>{{ session('message') }}</li>
             </ul>
