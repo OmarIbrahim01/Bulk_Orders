@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 21, 2018 at 02:27 PM
+-- Generation Time: Mar 22, 2018 at 02:44 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -187,17 +187,17 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`id`, `name`, `details`, `dimensions`, `thickness`, `weight`, `price`, `min_quantity`, `main_image_path`, `created_at`, `updated_at`) VALUES
 (1, 'A4 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '21x29.7', '12', NULL, 100, 1000, '/img/a4/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
-(2, 'A3 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '29.7x42', '12', NULL, 500, 1000, '/img/a3/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
-(3, 'A2 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '40x60', '12', NULL, 100, 1000, '/img/a2/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(4, 'A0 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 100, 1000, '/img/a0/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(5, 'Medal Small', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '6x9', '3', NULL, 100, 1000, '/img/medal_small/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(6, 'Medal Medium', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '7x10.5', '3', NULL, 122, 1000, '/img/medal_medium/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(7, 'Medal Large', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x12', '3', NULL, 122, 1000, '/img/medal_large/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(8, 'Name Tag', 'Wooden name-tag cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x4', '3', NULL, 122, 1000, '/img/name_tag/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(9, 'Coaster', 'Wooden mug-coaster with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '9x9', '3', NULL, 122, 1000, '/img/coaster/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(10, '1.8M Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 122, 1000, '/img/1.8m/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(11, '1.8M 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 122, 1000, '/img/1.8m_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(12, 'A0 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 222, 1000, '/img/a0_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(2, 'A3 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '29.7x42', '12', NULL, 200, 1000, '/img/a3/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
+(3, 'A2 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '40x60', '12', NULL, 350, 1000, '/img/a2/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(4, 'A0 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 550, 1000, '/img/a0/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(5, 'Medal Small', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '6x9', '3', NULL, 50, 1000, '/img/medal_small/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(6, 'Medal Medium', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '7x10.5', '3', NULL, 100, 1000, '/img/medal_medium/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(7, 'Medal Large', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x12', '3', NULL, 150, 1000, '/img/medal_large/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(8, 'Name Tag', 'Wooden name-tag cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x4', '3', NULL, 50, 1000, '/img/name_tag/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(9, 'Coaster', 'Wooden mug-coaster with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '9x9', '3', NULL, 100, 1000, '/img/coaster/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(10, '1.8M Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1200, 1000, '/img/1.8m/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(11, '1.8M 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1600, 1000, '/img/1.8m_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(12, 'A0 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 800, 1000, '/img/a0_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
 (17, 'A4 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '21x29.7', '12', NULL, 150, 1000, '/img/a4_puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
 (18, 'A3 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '29.7x42', '12', NULL, 300, 1000, '/img/a3_puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00');
 
@@ -292,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `company`, `country`, `address`, `phone`, `mobile`, `email`, `password`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Omar', 'Reyana', 'Egypt', 'alfnanfveajnfae', '1231231232133', NULL, 'omar@live.com', '$2y$10$4KRg.M58YhmjCQFYEQubYu9i9v0NIdfXs/QsNF9b6rN6rzPa6xgbm', 0, 'IVq7XtwwaBUiJYDO9XHruXGfwZukFaQttnmGzUSJ3IjPfy41ODvRF4M3iWdZ', NULL, NULL),
+(1, 'Omar', 'Reyana', 'Egypt', 'alfnanfveajnfae', '1231231232133', NULL, 'omar@live.com', '$2y$10$4KRg.M58YhmjCQFYEQubYu9i9v0NIdfXs/QsNF9b6rN6rzPa6xgbm', 1, 'IVq7XtwwaBUiJYDO9XHruXGfwZukFaQttnmGzUSJ3IjPfy41ODvRF4M3iWdZ', NULL, NULL),
 (2, 'Jumbo', 'Reyanaad', 'Egypty', '22a;i', '01111111111111', '090990909099099', 'jumbo@live.com', '$2y$10$VrJgKyOu.YeHik73G9ng..tLsTXx7QU5KhPCbqUQJtn35RNe2SB1i', 0, 'QbecRxiZTDkkKNVvceFEaUYOhluFQFdDeNfhdVFagzBEeOlIcFcQssF79uFz', '2018-03-18 07:25:42', '2018-03-18 07:25:42');
 COMMIT;
 

@@ -7,7 +7,7 @@
 <div class="col-lg-3" style="margin-bottom: 45px;">
 
 <h1 class="my-4" style="text-align: center; margin-top: -15px">Cartoonize Bulk Orders</h1>
-<p style="text-align: center;">We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
+<p style="text-align: center;">If you're a merchant We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
 <br>
 
 <h3 style="margin-top: 97px"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
@@ -19,9 +19,9 @@
     <h5 href="#" class="list-group-item">Total: <span style="color: darkred">${{$total}}</span></h5>
   @endauth
   @guest
-    <p style="color: grey">Please Register or Login To View Shopping Cart</p>
-    <a href="/login" class="btn btn-secondary" style="margin-right: 100px">Login</a>
-    <a href="/register" class="btn btn-secondary" style="margin-right: 100px; margin-top: 10px">Register</a>
+    <p style="color: grey">Register for a merchant account or Login To View Shopping Cart</p>
+    <a href="/login" class="btn btn-secondary" style="margin-right: 100px; margin: auto; width: 150px;">Login</a>
+    <a href="/register" class="btn btn-secondary" style="margin-right: 100px; margin: 10px auto auto auto; width: 150px;">Register</a>
   @endguest
 
 </div>
@@ -52,7 +52,7 @@
 </a>
 </div>
 
-<div class="row">
+<div class="row" style="margin-bottom: 40px;">
 
 @foreach($products as $product)
 

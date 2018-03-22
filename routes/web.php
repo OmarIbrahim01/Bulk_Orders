@@ -63,20 +63,39 @@ Route::get('/my_orders', [
 
 
 
+  ////////////////////////////////////////////
+ /////////////Admin Routes///////////////////
+////////////////////////////////////////////
 
-//Admin Routes
 Route::get('/admin', [
     'as' => 'admin.orders',
-    'uses' => 'AdminController@orders'
+    'uses' => 'AdminController@orders_index'
 ])->middleware('auth');
 
+
+//Orders Routes
 Route::get('/admin/orders', [
-    'as' => 'admin.orders',
-    'uses' => 'AdminController@orders'
+    'as' => 'admin_orders_index',
+    'uses' => 'AdminController@orders_index'
+])->middleware('auth');
+
+Route::get('/admin/orders/{id}', [
+    'as' => 'admin_orders_show',
+    'uses' => 'AdminController@orders_show'
 ])->middleware('auth');
 
 
 
+//Customers
+Route::get('/admin/customers', [
+    'as' => 'admin_customer_index',
+    'uses' => 'AdminController@customers_index'
+])->middleware('auth');
+
+Route::get('/admin/customers/{id}', [
+    'as' => 'admin_customer_show',
+    'uses' => 'AdminController@customers_show'
+])->middleware('auth');
 
 
 

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Cartoonize Bulk Orders</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('bootstrap/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -23,6 +23,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
+        <a class="navbar-brand" href="http://cartoonize.ae/"><i class="fas fa-angle-left"></i></a>
         <a class="navbar-brand" href="/" style="font-weight: 500;"><img src="/img/logo.png" alt="" width="80" style="margin-bottom: 4px;"> Bulk Orders</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -65,6 +66,10 @@ Register</a>
                 <i class="fas fa-user"></i> {{Auth::user()->name}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                @if(Auth::user()->permission == 1)
+                  <a class="dropdown-item" href="/admin">Admin Panel</a>
+                @endif
                 <a class="dropdown-item" href="/my_orders">My Orders</a>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -79,6 +84,8 @@ Register</a>
               </div>
             </li>
             @endguest
+
+
              
         
           </ul>
@@ -126,7 +133,7 @@ Register</a>
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Cartoonize 2017</p>
       </div>
       <!-- /.container -->
     </footer>

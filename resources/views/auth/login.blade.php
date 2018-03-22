@@ -7,7 +7,7 @@
 <form class="form-horizontal" method="POST" action="{{ route('login') }}">
     {{ csrf_field() }}
   	<h1>Login</h1>
-  	<p>Login to your existing account</p>
+  	<p>Login to your existing merchant account</p>
   	<br>
 
   	<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

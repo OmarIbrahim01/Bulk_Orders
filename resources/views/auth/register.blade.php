@@ -7,7 +7,7 @@
 <form class="form-horizontal" method="POST" action="{{ route('register') }}">
     {{ csrf_field() }}
   	<h1>Register</h1>
-    <p>Register a new account</p>
+    <p>Register for a merchant account</p>
   	<br>
   	
   	<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -24,7 +24,7 @@
         <label for="name" class="col-md-4 control-label">Company</label>
 
         
-            <input id="name" type="text" class="form-control" name="company" value="{{ old('company_name') }}" >
+            <input id="name" type="text" class="form-control" name="company" value="{{ old('company_name') }}" required>
 
             @if ($errors->has('company'))
                 <span class="help-block">
@@ -38,7 +38,7 @@
         <label for="name" class="col-md-4 control-label">Country</label>
 
         
-            <input id="name" type="text" class="form-control" name="country" value="{{ old('country') }}" >
+            <input id="name" type="text" class="form-control" name="country" value="{{ old('country') }}" required>
 
             @if ($errors->has('country'))
                 <span class="help-block">
@@ -52,7 +52,7 @@
       <label for="name" class="col-md-4 control-label">Address</label>
 
       
-          <input id="name" type="text" class="form-control" name="address" value="{{ old('address') }}" >
+          <input id="name" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
 
           @if ($errors->has('address'))
               <span class="help-block">
@@ -66,7 +66,7 @@
       <label for="name" class="col-md-4 control-label">Phone</label>
 
       
-          <input id="name" type="text" class="form-control" name="phone" value="{{ old('phone') }}" >
+          <input id="name" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required>
 
           @if ($errors->has('phone'))
               <span class="help-block">
