@@ -16,7 +16,9 @@
 	<li class="breadcrumb-item">
 	  <a href="/admin">Admin</a>
 	</li>
-	<li class="breadcrumb-item active">Orders</li>
+	<li class="breadcrumb-item">
+    Customers
+  </li>
 </ol>
 @endsection
 

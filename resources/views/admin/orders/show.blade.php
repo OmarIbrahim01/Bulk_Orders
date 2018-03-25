@@ -16,7 +16,10 @@
 	<li class="breadcrumb-item">
 	  <a href="/admin">Admin</a>
 	</li>
-	<li class="breadcrumb-item active">Orders</li>
+	<li class="breadcrumb-item active">
+    <a href="/admin/orders">Orders</a>
+  </li>
+  <li>  &nbsp; / #{{$cart->id}}</li>
 </ol>
 @endsection
 

@@ -44,11 +44,11 @@
               	@foreach($orders as $order)
                 <tr>
                   <td><a href="/admin/orders/{{$order->id}}">{{$order->id}}</a></td>
-                  <td>{{$order->name}}</td>
+                  <td><a href="/admin/customers/{{$order->user->id}}">{{$order->name}}</a></td>
                   <td>{{$order->email}}</td>
                   <td>{{$order->status->name}}</td>
                   <td>{{$order->created_at}}</td>
-                  <td>{{$order->total}}</td>                  
+                  <td style="color: darkred;">${{$order->total}}</td>                  
                 </tr>
                 @endforeach
               </tbody>

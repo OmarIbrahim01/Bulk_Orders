@@ -23,8 +23,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="http://cartoonize.ae/"><i class="fas fa-angle-left"></i></a>
-        <a class="navbar-brand" href="/" style="font-weight: 500;"><img src="/img/logo.png" alt="" width="80" style="margin-bottom: 4px;"> Bulk Orders</a>
+        <a class="navbar-brand" href="http://cartoonize.ae/"><i class="fa fa-angle-double-left"></i></a>
+        <a class="navbar-brand" href="/" style="font-weight: 500;"><img src="/img/logo.png" alt="" width="80" style="margin-bottom: 4px;"> <span style="font-weight: bold; font-style: italic;">Bulk Orders</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -133,7 +133,7 @@ Register</a>
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Cartoonize 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; <a href="http://cartoonize.ae/" style="color: yellow;">Cartoonize</a> {{date('Y')}}</p>
       </div>
       <!-- /.container -->
     </footer>

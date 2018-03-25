@@ -6,17 +6,25 @@
 
 <div class="col-lg-3" style="margin-bottom: 45px;">
 
-<h1 class="my-4" style="text-align: center; margin-top: -15px">Cartoonize Bulk Orders</h1>
+<h1 class="my-4" style="text-align: center; margin-top: -15px; font-size: 50px;
+  background: -webkit-linear-gradient(#333, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;">Cartoonize Bulk Orders</h1>
 <p style="text-align: center;">If you're a merchant We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
 <br>
 
-<h3 style="margin-top: 97px"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
-<div class="list-group">
+<h3 style="margin-top: 97px; margin-bottom: 15px; color: #333;"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+<ul class="list-group">
   @auth
     @foreach($items as $item) 
-    <a href="/shop/{{$item->product->id}}" class="list-group-item"><i class="fas fa-caret-right"></i> {{$item->product->name}}<span style="color: black; font-size: 12px;">({{$item->quantity}})</span><span style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00</span></a>
+    <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #f3f3f3;">
+      <a href="/shop/{{$item->product->id}}">{{$item->product->name}}
+      <span class="badge badge-secondary badge-pill">Qty {{$item->quantity}}</span></a>
+      <p style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00</p>
+    </li>
     @endforeach
     <h5 href="#" class="list-group-item">Total: <span style="color: darkred">${{$total}}</span></h5>
+    <a href="/cart" class="btn btn-success" style="margin-right: 100px; margin: 20px auto auto auto; width: 170px;"><i class="fa fa-shopping-cart"></i> Go to Checkout</a>
   @endauth
   @guest
     <p style="color: grey">Register for a merchant account or Login To View Shopping Cart</p>
@@ -24,7 +32,7 @@
     <a href="/register" class="btn btn-secondary" style="margin-right: 100px; margin: 10px auto auto auto; width: 150px;">Register</a>
   @endguest
 
-</div>
+</ul>
 
 </div>
 <!-- /.col-lg-3 -->
