@@ -133,7 +133,7 @@ Register</a>
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; <a href="http://cartoonize.ae/" style="color: yellow;">Cartoonize</a> {{date('Y')}}</p>
+        <p class="m-0 text-center text-white">Copyright &copy; <a href="http://cartoonize.ae/" style="color: orange;">Cartoonize</a> {{date('Y')}}</p>
       </div>
       <!-- /.container -->
     </footer>

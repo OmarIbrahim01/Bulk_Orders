@@ -10,17 +10,17 @@
   background: -webkit-linear-gradient(#333, #999);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;">Cartoonize Bulk Orders</h1>
-<p style="text-align: center; font-weight: bold; font-style: italic; color: #666;">If you're a merchant We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
+<p style="text-align: center; font-weight: 400; font-style: italic; color: #666;">If you're a merchant We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
 <br>
 
-<h3 style="margin-top: 97px; margin-bottom: 15px; color: #333;"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+<h3 style="margin-top: 0px; margin-bottom: 15px; color: #333;"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
 <ul class="list-group">
   @auth
     @foreach($items as $item) 
     <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #f3f3f3;">
-      <a href="/shop/{{$item->product->id}}">{{$item->product->name}}
+      <a href="/shop/{{$item->product->id}}" style="color: #333;"><i class="fas fa-chevron-circle-right"></i> {{$item->product->name}}
       <span class="badge badge-secondary badge-pill">Qty {{$item->quantity}}</span></a>
-      <p style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00
+      <p style="float: right; color: darkred; margin-top: 16px;">${{$item->product->price * $item->quantity}}.00
 
 
 
