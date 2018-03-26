@@ -6,6 +6,7 @@
 
 <div class="col-lg-3" style="margin-bottom: 45px;">
 
+<img class="my-4" src="/img/logo.png" alt="" width="250" style="width: 100%">
 <h1 class="my-4" style="text-align: center; margin-top: -15px; font-size: 50px;
   background: -webkit-linear-gradient(#333, #999);
   -webkit-background-clip: text;
@@ -19,7 +20,7 @@
     @foreach($items as $item) 
     <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #f3f3f3;">
       <a href="/shop/{{$item->product->id}}" style="color: #333;"><i class="fas fa-chevron-circle-right"></i> {{$item->product->name}}
-      <span class="badge badge-secondary badge-pill">Qty {{$item->quantity}}</span></a>
+      <span class="badge badge-secondary badge-pill" style="margin-left: 20px;">Qty {{$item->quantity}}</span></a>
       <p style="float: right; color: darkred; margin-top: 16px;">${{$item->product->price * $item->quantity}}.00
 
 
@@ -35,7 +36,11 @@
     </li>
     @endforeach
     <h5 href="#" class="list-group-item">Total: <span style="color: darkred">${{$total}}</span></h5>
+    @if($totalQuantity < 1000)
+    <small style="margin: auto; color: darkred">Mininum Total Quantity is 1000 Pieces</small>
+    @endif
     <a href="/cart" class="btn btn-success" style="margin-right: 100px; margin: 20px auto auto auto; width: 170px;"><i class="fa fa-shopping-cart"></i> Go to Checkout</a>
+
   @endauth
   @guest
     <p style="color: grey">Register for a merchant account or Login To View Shopping Cart</p>

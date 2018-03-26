@@ -83,12 +83,18 @@ class CartController extends Controller
         $user_cart = Cart::where('user_id', $user_id)->where('status_id', 1)->first();
         
         $cart_items = Item::all()->where('cart_id', $user_cart->id);
+
         $total = 0;
         foreach ($cart_items as $item) {
             $total += $item->product->price * $item->quantity; 
         }
 
-        return view('cart.show')->withItems($cart_items)->withTotal($total)->withCart($user_cart);
+        $total_quantity = 0;
+        foreach ($cart_items as $item) {
+            $total_quantity += $item->quantity; 
+        }
+
+        return view('cart.show')->withItems($cart_items)->withTotal($total)->withCart($user_cart)->withTotalQuantity($total_quantity);
     }
 
     public function my_orders()

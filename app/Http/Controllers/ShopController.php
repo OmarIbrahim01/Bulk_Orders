@@ -33,7 +33,13 @@ class ShopController extends Controller
             foreach($items as $item){
                 $total = $total + $item->product->price * $item->quantity;
             }
-            return view('shop.index')->withProducts($products)->withCart($user_cart_id)->withItems($items)->withTotal($total);
+
+            $total_quantity = 0;
+            foreach ($items as $item) {
+                $total_quantity += $item->quantity; 
+            }
+
+            return view('shop.index')->withProducts($products)->withCart($user_cart_id)->withItems($items)->withTotal($total)->withTotalQuantity($total_quantity);
 
         }else {
 
