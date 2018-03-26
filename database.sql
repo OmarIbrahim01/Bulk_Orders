@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 22, 2018 at 02:44 PM
+-- Generation Time: Mar 26, 2018 at 08:43 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `items`
@@ -92,7 +92,8 @@ INSERT INTO `items` (`id`, `cart_id`, `product_id`, `quantity`, `created_at`, `u
 (16, 5, 1, 123123, '2018-03-19 06:53:51', '2018-03-19 06:53:51'),
 (17, 5, 2, 123, '2018-03-19 06:53:53', '2018-03-19 06:53:53'),
 (18, 6, 1, 123, '2018-03-19 07:59:36', '2018-03-19 07:59:36'),
-(19, 6, 2, 123, '2018-03-19 07:59:38', '2018-03-19 07:59:38');
+(19, 6, 2, 123, '2018-03-19 07:59:38', '2018-03-19 07:59:38'),
+(40, 7, 1, 2000, '2018-03-26 05:59:47', '2018-03-26 05:59:47');
 
 -- --------------------------------------------------------
 

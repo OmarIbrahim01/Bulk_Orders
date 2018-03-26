@@ -10,7 +10,7 @@
   background: -webkit-linear-gradient(#333, #999);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;">Cartoonize Bulk Orders</h1>
-<p style="text-align: center;">If you're a merchant We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
+<p style="text-align: center; font-weight: bold; font-style: italic; color: #666;">If you're a merchant We offer bulk orders for <span style="color: darkred; text-decoration: underline;">exporting only</span></p>
 <br>
 
 <h3 style="margin-top: 97px; margin-bottom: 15px; color: #333;"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
@@ -20,7 +20,18 @@
     <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #f3f3f3;">
       <a href="/shop/{{$item->product->id}}">{{$item->product->name}}
       <span class="badge badge-secondary badge-pill">Qty {{$item->quantity}}</span></a>
-      <p style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00</p>
+      <p style="float: right; color: darkred;">${{$item->product->price * $item->quantity}}.00
+
+
+
+       <a href="/item/{{$item->id}}" style="float: right; color: darkred"  onclick="event.preventDefault(); document.getElementById('cancel_item').submit();"><i class="fas fa-times"></i></a> 
+
+       <form id="cancel_item" action="/item/{{$item->id}}" method="POST" style="display: none;">
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+       </form> 
+
+     </p>
     </li>
     @endforeach
     <h5 href="#" class="list-group-item">Total: <span style="color: darkred">${{$total}}</span></h5>
