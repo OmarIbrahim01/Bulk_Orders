@@ -29,7 +29,7 @@
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="/admin/orders">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-cube"></i>
             <span class="nav-link-text">Orders</span>
           </a>
         </li>
@@ -38,6 +38,13 @@
           <a class="nav-link" href="/admin/customers">
             <i class="fa fa-address-book"></i>
             <span class="nav-link-text">Customers</span>
+          </a>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="/admin/products">
+            <i class="fa fa-anchor"></i>
+            <span class="nav-link-text">Products</span>
           </a>
         </li>
         
@@ -53,7 +60,7 @@
         <!-- Logout Nav Buttons -->
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            <i class="fas fa-sign-out-alt"></i> Logout</a>
         </li>
       </ul>
     </div>
@@ -65,6 +72,29 @@
       
       <div class="row">
         <div class="col-12">
+          @if ($errors->any())
+              <div class="alert alert-danger alert-dismissible fade show" style="margin: 17px 7% 25px 7%; padding-bottom: 0;">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          @endif
+
+          @if (session()->has('message'))
+              <div class="alert alert-success alert-dismissible fade show" style="margin: 17px 7% 25px 7%; padding-bottom: 0;">
+                  <ul>
+                    <li>{{ session('message') }}</li>
+                  </ul>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          @endif
           @yield('content')
         </div>
       </div>
@@ -107,9 +137,12 @@
     <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="/js/sb-admin.min.js"></script>
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     @yield('js')
   </div>
+
+
 </body>
 
 </html>

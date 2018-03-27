@@ -97,7 +97,13 @@ Route::get('/admin/customers/{id}', [
     'uses' => 'AdminController@customers_show'
 ])->middleware('auth');
 
+//Products
+Route::resource('/admin/products', 'ProductsController');
 
+Route::delete('/admin/products/{image_id}/delete', [
+    'as' => 'delete.product.image',
+    'uses' => 'ProductsController@destroy_image'
+])->middleware('auth');
 
 
 

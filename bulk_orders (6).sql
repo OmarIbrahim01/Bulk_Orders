@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 26, 2018 at 01:44 PM
+-- Generation Time: Mar 27, 2018 at 02:13 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -212,20 +212,20 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `details`, `dimensions`, `thickness`, `weight`, `price`, `min_quantity`, `main_image_path`, `created_at`, `updated_at`) VALUES
-(1, 'A4 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '21x29.7', '12', NULL, 100, 50, '/img/a4/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
-(2, 'A3 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '29.7x42', '12', NULL, 200, 50, '/img/a3/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
-(3, 'A2 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '40x60', '12', NULL, 350, 50, '/img/a2/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(4, 'A0 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 550, 50, '/img/a0/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(5, 'Medal Small', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '6x9', '3', NULL, 50, 50, '/img/medal_small/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(6, 'Medal Medium', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '7x10.5', '3', NULL, 100, 50, '/img/medal_medium/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(7, 'Medal Large', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x12', '3', NULL, 150, 50, '/img/medal_large/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(8, 'Name Tag', 'Wooden name-tag cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x4', '3', NULL, 50, 50, '/img/name_tag/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(9, 'Coaster', 'Wooden mug-coaster with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '9x9', '3', NULL, 100, 50, '/img/coaster/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(10, '1.8M Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1200, 5, '/img/1.8m/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(11, '1.8M 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1600, 5, '/img/1.8m_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(12, 'A0 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 800, 10, '/img/a0_3d/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(17, 'A4 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '21x29.7', '12', NULL, 150, 50, '/img/a4_puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(18, 'A3 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '29.7x42', '12', NULL, 300, 50, '/img/a3_puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00');
+(1, 'A4 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '21x29.7', '12', NULL, 100, 50, '/img/A4 Maqutte/main.jpg', '2018-03-19 22:00:00', '2018-03-27 11:53:10'),
+(2, 'A3 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '29.7x42', '12', NULL, 200, 50, '/img/A3 Maqutte/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
+(3, 'A2 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '40x60', '12', NULL, 350, 50, '/img/A2 Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(4, 'A0 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 550, 50, '/img/A0 Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(5, 'Medal Small', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '6x9', '3', NULL, 50, 50, '/img/Medal Small/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(6, 'Medal Medium', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '7x10.5', '3', NULL, 100, 50, '/img/Medal Medium/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(7, 'Medal Large', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x12', '3', NULL, 150, 50, '/img/Medal Large/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(8, 'Name Tag', 'Wooden name-tag cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x4', '3', NULL, 50, 50, '/img/Name Tag/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(9, 'Coaster', 'Wooden mug-coaster with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '9x9', '3', NULL, 100, 50, '/img/Coaster/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(10, '1.8M Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1200, 5, '/img/1.8M Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(11, '1.8M 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1600, 5, '/img/1.8M 3D Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(12, 'A0 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 800, 10, '/img/A0 3D Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(17, 'A4 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '21x29.7', '12', NULL, 150, 50, '/img/A4 Puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(18, 'A3 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '29.7x42', '12', NULL, 300, 50, '/img/A3 Puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -241,52 +241,52 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `product_images`
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `path`, `created_at`, `updated_at`) VALUES
-(1, 1, '/img/a4/1.jpg', NULL, NULL),
-(2, 1, '/img/a4/2.jpg', NULL, NULL),
-(3, 1, '/img/a4/3.jpg', NULL, NULL),
-(4, 2, '/img/a3/1.jpg', NULL, NULL),
-(5, 2, '/img/a3/2.jpg', NULL, NULL),
-(6, 3, '/img/a2/1.jpg', NULL, NULL),
-(7, 3, '/img/a2/2.jpg', NULL, NULL),
-(8, 3, '/img/a2/3.jpg', NULL, NULL),
-(9, 4, '/img/a0/1.jpg', NULL, NULL),
-(10, 4, '/img/a0/2.jpg', NULL, NULL),
-(11, 4, '/img/a0/3.jpg', NULL, NULL),
-(12, 5, '/img/medal_small/1.jpg', NULL, NULL),
-(13, 5, '/img/medal_small/2.jpg', NULL, NULL),
-(14, 5, '/img/medal_small/3.jpg', NULL, NULL),
-(15, 5, '/img/medal_small/4.jpg', NULL, NULL),
-(16, 5, '/img/medal_small/5.jpg', NULL, NULL),
-(17, 5, '/img/medal_small/6.jpg', NULL, NULL),
-(18, 6, '/img/medal_medium/1.jpg', NULL, NULL),
-(19, 6, '/img/medal_medium/2.jpg', NULL, NULL),
-(20, 6, '/img/medal_medium/3.jpg', NULL, NULL),
-(21, 6, '/img/medal_medium/4.jpg', NULL, NULL),
-(22, 6, '/img/medal_medium/5.jpg', NULL, NULL),
-(23, 6, '/img/medal_medium/6.jpg', NULL, NULL),
-(24, 7, '/img/medal_large/1.jpg', NULL, NULL),
-(25, 7, '/img/medal_large/2.jpg', NULL, NULL),
-(26, 7, '/img/medal_large/3.jpg', NULL, NULL),
-(27, 7, '/img/medal_large/4.jpg', NULL, NULL),
-(28, 7, '/img/medal_large/5.jpg', NULL, NULL),
-(29, 7, '/img/medal_large/6.jpg', NULL, NULL),
-(30, 8, '/img/name_tag/1.jpg', NULL, NULL),
-(31, 9, '/img/coaster/1.jpg', NULL, NULL),
-(32, 9, '/img/coaster/2.jpg', NULL, NULL),
-(74, 11, '/img/1.8m_3d/2.jpg', NULL, NULL),
-(76, 17, '/img/a4_puzzle/1.jpg', NULL, NULL),
-(77, 18, '/img/a3_puzzle/1.jpg', NULL, NULL),
-(71, 12, '/img/a0_3d/2.jpg', NULL, NULL),
-(73, 11, '/img/1.8m_3d/1.jpg', NULL, NULL),
-(72, 12, '/img/a0_3d/3.jpg', NULL, NULL),
-(70, 12, '/img/a0_3d/1.jpg', NULL, NULL);
+(1, 1, '/img/A4 Maqutte/1.jpg', NULL, NULL),
+(2, 1, '/img/A4 Maqutte/2.jpg', NULL, NULL),
+(3, 1, '/img/A4 Maqutte/3.jpg', NULL, NULL),
+(4, 2, '/img/A3 Maqutte/1.jpg', NULL, NULL),
+(5, 2, '/img/A3 Maqutte/2.jpg', NULL, NULL),
+(6, 3, '/img/A2 Maqutte/1.jpg', NULL, NULL),
+(7, 3, '/img/A2 Maqutte/2.jpg', NULL, NULL),
+(8, 3, '/img/A2 Maqutte/3.jpg', NULL, NULL),
+(9, 4, '/img/A0 Maqutte/1.jpg', NULL, NULL),
+(10, 4, '/img/A0 Maqutte/2.jpg', NULL, NULL),
+(11, 4, '/img/A0 Maqutte/3.jpg', NULL, NULL),
+(12, 5, '/img/Medal Small/1.jpg', NULL, NULL),
+(13, 5, '/img/Medal Small/2.jpg', NULL, NULL),
+(14, 5, '/img/Medal Small/3.jpg', NULL, NULL),
+(15, 5, '/img/Medal Small/4.jpg', NULL, NULL),
+(16, 5, '/img/Medal Small/5.jpg', NULL, NULL),
+(17, 5, '/img/Medal Small/6.jpg', NULL, NULL),
+(18, 6, '/img/Medal Medium/1.jpg', NULL, NULL),
+(19, 6, '/img/Medal Medium/2.jpg', NULL, NULL),
+(20, 6, '/img/Medal Medium/3.jpg', NULL, NULL),
+(21, 6, '/img/Medal Medium/4.jpg', NULL, NULL),
+(22, 6, '/img/Medal Medium/5.jpg', NULL, NULL),
+(23, 6, '/img/Medal Medium/6.jpg', NULL, NULL),
+(24, 7, '/img/Medal Large/1.jpg', NULL, NULL),
+(25, 7, '/img/Medal Large/2.jpg', NULL, NULL),
+(26, 7, '/img/Medal Large/3.jpg', NULL, NULL),
+(27, 7, '/img/Medal Large/4.jpg', NULL, NULL),
+(28, 7, '/img/Medal Large/5.jpg', NULL, NULL),
+(29, 7, '/img/Medal Large/6.jpg', NULL, NULL),
+(30, 8, '/img/Name Tag/1.jpg', NULL, NULL),
+(31, 9, '/img/Coaster/1.jpg', NULL, NULL),
+(32, 9, '/img/Coaster/2.jpg', NULL, NULL),
+(74, 11, '/img/1.8M 3D Maqutte/2.jpg', NULL, NULL),
+(76, 17, '/img/A4 Puzzle/1.jpg', NULL, NULL),
+(77, 18, '/img/A3 Puzzle/1.jpg', NULL, NULL),
+(71, 12, '/img/A0 3D Maqutte/2.jpg', NULL, NULL),
+(73, 11, '/img/1.8M 3D Maqutte/1.jpg', NULL, NULL),
+(72, 12, '/img/A0 3D Maqutte/3.jpg', NULL, NULL),
+(70, 12, '/img/A0 3D Maqutte/1.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
