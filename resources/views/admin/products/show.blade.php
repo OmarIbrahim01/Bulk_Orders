@@ -57,6 +57,15 @@
         <a href="/admin/products/{{$product->id}}/edit" class="btn btn-success" style="width: 100%;">Edit</a>
       </div>
 
+      <div style="margin-top: 20px;">
+        <a href="#" onclick="event.preventDefault(); document.getElementById('remove_product').submit();" class="btn btn-danger" style="width: 100%;">Delete</a>
+        </a>
+        <form id="remove_product" action="{{ route('products.destroy', [$product->id]) }}" method="POST" style="display: none;">
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+        </form> 
+      </div>
+
     </div>
 
   </div>

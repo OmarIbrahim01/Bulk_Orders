@@ -26,7 +26,7 @@
 
 
 @section('content')
-<div class="jumbotron">
+
 <!-- Portfolio Item Row -->
 
 <!-- Page Content -->
@@ -84,7 +84,7 @@
   <h3 class="my-4">Images</h3>
 
   <div class="row" style="margin-bottom: 50px">
-
+    @if(!empty($product->images))
     @foreach($product->images as $image)
     <div class="col-md-2 col-sm-6 mb-4">
       <a href="{{$image->path}}">
@@ -95,19 +95,21 @@
       
     </div>
     @endforeach
+    @endif
     <input type="file" name="images[]" style="width: 100%;" class="img-fluid btn btn-info" id="images"  multiple>
     
   </div>
   <!-- /.row -->
 </form>
 
-
+@if(!empty($product->images))
 {{-- Delete Image Form --}}
-<form id="remove_image" action="/admin/products/{{$image->id}}/delete" method="POST" style="display: none;">
+<form id="remove_image" action="/admin/products/@if(isset($image->id)){{$image->id}}@endif/delete" method="POST" style="display: none;">
   {{ csrf_field() }}
   {{ method_field('DELETE') }}
 </form> 
-</div>
+@endif
+
 </div>
 <!-- /.container -->
 

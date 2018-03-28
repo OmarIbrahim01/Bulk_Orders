@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Cart;
 use App\Item;
-
+use App\Setting;
 class CartController extends Controller
 {
     /**
@@ -37,12 +37,25 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            ''
+
+        ]);
+
         $cart = Cart::findOrFail($request->cart_id);
 
         $total = 0;
         foreach($cart->items as $item){
             $total += $item->product->price * $item->quantity;
         }
+
+        $total_quantity = 0;
+            foreach ($cart->items as $item) {
+                $total_quantity += $item->quantity; 
+            }
+
+
+        $min_qty = Setting::where('name', 'min_quantity')->first();
 
         $request->validate([                
                 'name' => 'required',
@@ -94,7 +107,9 @@ class CartController extends Controller
             $total_quantity += $item->quantity; 
         }
 
-        return view('cart.show')->withItems($cart_items)->withTotal($total)->withCart($user_cart)->withTotalQuantity($total_quantity);
+        $min_qty = Setting::where('name', 'min_quantity')->first();
+
+        return view('cart.show')->withItems($cart_items)->withTotal($total)->withCart($user_cart)->withTotalQuantity($total_quantity)->withMin_qty($min_qty);
     }
 
     public function my_orders()

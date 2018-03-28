@@ -106,6 +106,17 @@ Route::delete('/admin/products/{image_id}/delete', [
 ])->middleware('auth');
 
 
+//Settings
+Route::get('/admin/settings', [
+    'as' => 'settings.index',
+    'uses' => 'SettingsController@index'
+])->middleware('auth');
+
+Route::post('/admin/settings/set_min_quantity', [
+    'as' => 'settings.setQty',
+    'uses' => 'SettingsController@save_min_quantity'
+])->middleware('auth');
+
 
 Auth::routes();
 

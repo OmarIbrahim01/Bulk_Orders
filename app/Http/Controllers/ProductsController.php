@@ -26,7 +26,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -37,7 +37,51 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                'name' => 'required',
+                'price' => 'required|numeric'
+            ]);
+
+
+        $product = new Product;
+
+
+        //Upload main_image file
+        if( $request->hasFile('main_image') ) {
+            $file = $request->file('main_image');
+
+            $file->move('img/'.$request->name, 'main.jpg');
+            // $file->move('img/'.$product->name, 'main.'.$file->getClientOriginalExtension());
+            
+            $product->main_image_Path = "/img/$request->name/main.jpg";
+        }
+
+        $product->name = $request->name;
+        $product->details = $request->details;
+        $product->dimensions = $request->dimensions;
+        $product->thickness = $request->thickness;
+        $product->weight = $request->weight;
+        $product->price = $request->price;
+        $product->min_quantity = $request->min_quantity;
+        $product->save();
+
+         //Upload product_Images files and save to db
+        if( $request->hasFile('images') ) {
+            foreach($request->file('images') as $file){
+
+                $file->move('img/'.$product->name, $file->getClientOriginalName());
+                
+                $product_image = new ProductImage;
+                $product_image->product_id = $product->id;
+                $product_image->path = '/img/'.$product->name.'/'.$file->getClientOriginalName();
+                $product_image->save();
+            }
+        }
+
+        session()->flash('message', 'Product Has been Created Successfully');
+
+        return redirect()->route('products.show', [$product->id]);
     }
 
     /**
@@ -86,10 +130,10 @@ class ProductsController extends Controller
         if( $request->hasFile('main_image') ) {
             $file = $request->file('main_image');
 
-            $file->move('img/'.$product->name, 'main.'.$file->getClientOriginalExtension());
+            $file->move('img/'.$product->name, 'main.jpg');
             // $file->move('img/'.$product->name, 'main.'.$file->getClientOriginalExtension());
             
-            $product->main_image = "/img/$product->name/main.jpg";
+            $product->main_image_Path = "/img/$product->name/main.jpg";
         }
 
 
@@ -117,7 +161,7 @@ class ProductsController extends Controller
 
         session()->flash('message', 'Changes Has been Saved Successfully');
 
-        return back();
+       return redirect()->route('products.show', [$product->id]);
     }
 
     /**
@@ -143,6 +187,10 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        session()->flash('message', 'Image Removed Successfully');
+        return redirect()->route('products.index');
     }
 }

@@ -61,7 +61,7 @@
 				<p style="margin: 40px auto;">Please fill in the form and submit the order and we will review it and contact you, Thank you for choosing us.</p>
 			</div>
 			<div class="col">
-				@if($totalQuantity >= 1000)
+				@if($totalQuantity >= $minQty->value)
 				<form action="/cart" method="POST">
 					{{csrf_field()}}
 					<input type="hidden" name="cart_id" value="{{$cart->id}}">
@@ -115,7 +115,7 @@
 				</form>
 				@else
 
-				<h5 style="color: darkred;">Minimum Order total Quantity Is 1000 Pieces</h5>
+				<h5 style="color: darkred;">Minimum Order total Quantity Is {{$minQty->value}} Pieces</h5>
 				<p>Your Total Quantity is <span style="color: green; font-weight: bold;">300</span> Pieces, Please add more items to your shopping cart.</p>
 				<a href="/" class="btn btn-success" style="margin: 20px auto; margin-bottom: 620px;"><i class="fa fa-shopping-cart"></i> Add More</a>
 

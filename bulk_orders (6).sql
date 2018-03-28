@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 27, 2018 at 02:13 PM
+-- Generation Time: Mar 28, 2018 at 02:12 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `carts`;
 CREATE TABLE IF NOT EXISTS `carts` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
+  `min_quantity_id` int(11) NOT NULL,
   `total` int(11) DEFAULT NULL,
   `name` text COLLATE utf8mb4_unicode_ci,
   `company` text COLLATE utf8mb4_unicode_ci,
@@ -52,13 +53,13 @@ CREATE TABLE IF NOT EXISTS `carts` (
 -- Dumping data for table `carts`
 --
 
-INSERT INTO `carts` (`id`, `user_id`, `total`, `name`, `company`, `country`, `city`, `address`, `shipping_address`, `phone`, `phone2`, `email`, `status_id`, `created_at`, `updated_at`) VALUES
-(9, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:35:27', '2018-03-21 06:35:27'),
-(10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:36:42', '2018-03-21 06:36:42'),
-(8, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:35:05', '2018-03-21 06:35:05'),
-(7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-19 07:59:45', '2018-03-19 07:59:45'),
-(5, 1, 12373800, 'Omar', 'Reyanaa', 'Egypt', 'Cairo', 'qweqweqwe', 'asdasdsad', '32161261', NULL, 'omar@live.com', 2, '2018-03-19 06:53:48', '2018-03-19 06:53:57'),
-(6, 1, 73800, 'Ibrahim', 'Reyana', 'UAE', 'Dubai', 'qweqweqwe', 'asdasdasd', '21551', NULL, 'omar@live.com', 2, '2018-03-19 06:58:11', '2018-03-19 07:59:42');
+INSERT INTO `carts` (`id`, `user_id`, `min_quantity_id`, `total`, `name`, `company`, `country`, `city`, `address`, `shipping_address`, `phone`, `phone2`, `email`, `status_id`, `created_at`, `updated_at`) VALUES
+(9, 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:35:27', '2018-03-21 06:35:27'),
+(10, 5, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:36:42', '2018-03-21 06:36:42'),
+(8, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-21 06:35:05', '2018-03-21 06:35:05'),
+(7, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-03-19 07:59:45', '2018-03-19 07:59:45'),
+(5, 1, 1, 12373800, 'Omar', 'Reyanaa', 'Egypt', 'Cairo', 'qweqweqwe', 'asdasdsad', '32161261', NULL, 'omar@live.com', 2, '2018-03-19 06:53:48', '2018-03-19 06:53:57'),
+(6, 1, 1, 73800, 'Ibrahim', 'Reyana', 'UAE', 'Dubai', 'qweqweqwe', 'asdasdasd', '21551', NULL, 'omar@live.com', 2, '2018-03-19 06:58:11', '2018-03-19 07:59:42');
 
 -- --------------------------------------------------------
 
@@ -127,29 +128,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `min_quantities`
---
-
-DROP TABLE IF EXISTS `min_quantities`;
-CREATE TABLE IF NOT EXISTS `min_quantities` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `min_quantity` int(11) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `min_quantities`
---
-
-INSERT INTO `min_quantities` (`id`, `min_quantity`, `active`, `created_at`, `updated_at`) VALUES
-(1, 1000, 1, '2018-03-23 22:00:00', '2018-03-25 22:00:00');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `order_statuses`
 --
 
@@ -200,32 +178,31 @@ CREATE TABLE IF NOT EXISTS `products` (
   `thickness` text COLLATE utf8mb4_unicode_ci,
   `weight` text COLLATE utf8mb4_unicode_ci,
   `price` int(11) NOT NULL,
-  `min_quantity` int(11) DEFAULT NULL,
   `main_image_path` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `details`, `dimensions`, `thickness`, `weight`, `price`, `min_quantity`, `main_image_path`, `created_at`, `updated_at`) VALUES
-(1, 'A4 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '21x29.7', '12', NULL, 100, 50, '/img/A4 Maqutte/main.jpg', '2018-03-19 22:00:00', '2018-03-27 11:53:10'),
-(2, 'A3 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '29.7x42', '12', NULL, 200, 50, '/img/A3 Maqutte/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
-(3, 'A2 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '40x60', '12', NULL, 350, 50, '/img/A2 Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(4, 'A0 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 550, 50, '/img/A0 Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(5, 'Medal Small', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '6x9', '3', NULL, 50, 50, '/img/Medal Small/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(6, 'Medal Medium', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '7x10.5', '3', NULL, 100, 50, '/img/Medal Medium/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(7, 'Medal Large', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x12', '3', NULL, 150, 50, '/img/Medal Large/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(8, 'Name Tag', 'Wooden name-tag cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x4', '3', NULL, 50, 50, '/img/Name Tag/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(9, 'Coaster', 'Wooden mug-coaster with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '9x9', '3', NULL, 100, 50, '/img/Coaster/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(10, '1.8M Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1200, 5, '/img/1.8M Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(11, '1.8M 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1600, 5, '/img/1.8M 3D Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(12, 'A0 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 800, 10, '/img/A0 3D Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(17, 'A4 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '21x29.7', '12', NULL, 150, 50, '/img/A4 Puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
-(18, 'A3 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '29.7x42', '12', NULL, 300, 50, '/img/A3 Puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00');
+INSERT INTO `products` (`id`, `name`, `details`, `dimensions`, `thickness`, `weight`, `price`, `main_image_path`, `created_at`, `updated_at`) VALUES
+(1, 'A4 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '21x29.7', '12', NULL, 100, '/img/A4 Maqutte/main.jpg', '2018-03-19 22:00:00', '2018-03-28 06:25:48'),
+(2, 'A3 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '29.7x42', '12', NULL, 200, '/img/A3 Maqutte/main.jpg', '2018-03-19 22:00:00', '2018-03-19 22:00:00'),
+(3, 'A2 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '40x60', '12', NULL, 350, '/img/A2 Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(4, 'A0 Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 550, '/img/A0 Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(5, 'Medal Small', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '6x9', '3', NULL, 50, '/img/Medal Small/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(6, 'Medal Medium', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '7x10.5', '3', NULL, 100, '/img/Medal Medium/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(7, 'Medal Large', 'Wooden medal cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x12', '3', NULL, 150, '/img/Medal Large/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(8, 'Name Tag', 'Wooden name-tag cut to design size with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '8x4', '3', NULL, 50, '/img/Name Tag/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(9, 'Coaster', 'Wooden mug-coaster with custom high quality printed acrylic front side,\r\nyou can choose from hundreds of our designs.', '9x9', '3', NULL, 100, '/img/Coaster/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(10, '1.8M Maqutte', 'Wooden maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1200, '/img/1.8M Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(11, '1.8M 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '200x120', '12', NULL, 1600, '/img/1.8M 3D Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(12, 'A0 3D Maqutte', 'Wooden 3D maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.', '120x80', '12', NULL, 800, '/img/A0 3D Maqutte/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(17, 'A4 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '21x29.7', '12', NULL, 150, '/img/A4 Puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00'),
+(18, 'A3 Puzzle', 'Wooden Puzzle maquette cut to design size with custom high quality printed acrylic front side\r\nand a wooden backstand,\r\nyou can choose from hundreds of our designs.\r\n', '29.7x42', '12', NULL, 300, '/img/A3 Puzzle/main.jpg', '2018-03-20 22:00:00', '2018-03-20 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -241,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `product_images`
@@ -280,13 +257,45 @@ INSERT INTO `product_images` (`id`, `product_id`, `path`, `created_at`, `updated
 (30, 8, '/img/Name Tag/1.jpg', NULL, NULL),
 (31, 9, '/img/Coaster/1.jpg', NULL, NULL),
 (32, 9, '/img/Coaster/2.jpg', NULL, NULL),
+(92, 23, '/img/bbb/adminnote1.PNG', '2018-03-28 06:37:29', '2018-03-28 06:37:29'),
+(88, 21, '/img/zxczxczxc/hack1.PNG', '2018-03-28 06:35:14', '2018-03-28 06:35:14'),
+(86, 19, '/img/qweqweqwe/ssl.PNG', '2018-03-28 06:26:40', '2018-03-28 06:26:40'),
+(98, 24, '/img/qwe/antivirus.PNG', '2018-03-28 07:00:42', '2018-03-28 07:00:42'),
+(83, 19, '/img/qweqweqwe/adminnote1.PNG', '2018-03-28 06:26:40', '2018-03-28 06:26:40'),
+(85, 19, '/img/qweqweqwe/name-domains.png', '2018-03-28 06:26:40', '2018-03-28 06:26:40'),
 (74, 11, '/img/1.8M 3D Maqutte/2.jpg', NULL, NULL),
 (76, 17, '/img/A4 Puzzle/1.jpg', NULL, NULL),
 (77, 18, '/img/A3 Puzzle/1.jpg', NULL, NULL),
 (71, 12, '/img/A0 3D Maqutte/2.jpg', NULL, NULL),
 (73, 11, '/img/1.8M 3D Maqutte/1.jpg', NULL, NULL),
 (72, 12, '/img/A0 3D Maqutte/3.jpg', NULL, NULL),
-(70, 12, '/img/A0 3D Maqutte/1.jpg', NULL, NULL);
+(70, 12, '/img/A0 3D Maqutte/1.jpg', NULL, NULL),
+(99, 24, '/img/qwe/name-domains.png', '2018-03-28 07:00:42', '2018-03-28 07:00:42'),
+(97, 24, '/img/qwe/adminnote1.PNG', '2018-03-28 07:00:42', '2018-03-28 07:00:42'),
+(96, 24, '/img/qwe/adminnote.PNG', '2018-03-28 07:00:42', '2018-03-28 07:00:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUES
+(1, 'min_quantity', '1000', '2018-03-23 22:00:00', '2018-03-28 11:55:51');
 
 -- --------------------------------------------------------
 

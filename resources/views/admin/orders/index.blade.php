@@ -33,7 +33,7 @@
               <thead>
                 <tr>
                   <th>Order Number</th>
-                  <th>Username</th>
+                  <th>Customer</th>
                   <th>Email</th>
                   <th>Order Status</th>
                   <th>Added At</th>

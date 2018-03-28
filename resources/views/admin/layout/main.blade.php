@@ -41,10 +41,24 @@
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="/admin/products">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-anchor"></i>
             <span class="nav-link-text">Products</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMulti">
+            <li>
+              <a href="/admin/products">All Products</a>
+            </li>
+            <li>
+              <a href="/admin/products/create">Create New</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{route('settings.index')}}">
+            <i class="fa fa-cog"></i>
+            <span class="nav-link-text">Settings</span>
           </a>
         </li>
         
