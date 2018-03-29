@@ -89,7 +89,15 @@
     <div class="col-md-3 col-sm-6 mb-4">
       <a href="#">
         <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-    </div>   
+    </div> 
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+    </div>  
     
   </div>
   <input type="file" name="images[]" style="width: 100%; margin-bottom: 20px;" class="img-fluid btn btn-info" id="images"  multiple>
