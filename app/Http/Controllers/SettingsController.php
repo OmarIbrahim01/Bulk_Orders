@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Setting;
+use App\User;
+
 
 class SettingsController extends Controller
 {
     public function index()
     {
     	$min_qty = Setting::where('name', 'min_quantity')->first();
-    	return view('admin.settings.index')->withMin_qty($min_qty);
+        $admin_users = User::all()->where('permission', 1);
+        $users =  User::all()->where('permission', 0);
+    	return view('admin.settings.index')->withMin_qty($min_qty)->withAdmins($admin_users)->withUsers($users);
     }
 
 
@@ -27,5 +31,27 @@ class SettingsController extends Controller
     	session()->flash('message', 'Minimum Quantity Has been Saved Successfully');
 
     	return back();
+    }
+
+    public function set_admin(Request $request)
+    {   
+
+        $user = User::findOrFail($request->id);
+        $user->permission = 1;
+        $user->update();
+
+        session()->flash('message', 'User Settings Saved Successfully');
+        return back();
+    }
+
+    public function unset_admin(Request $request)
+    {   
+
+        $admin = User::findOrFail($request->id);
+        $admin->permission = 0;
+        $admin->update();
+
+        session()->flash('message', 'User Settings Saved Successfully');
+        return back();
     }
 }

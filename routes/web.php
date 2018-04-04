@@ -119,6 +119,16 @@ Route::middleware(['admin', 'auth'])->group(function () {
         'uses' => 'SettingsController@save_min_quantity'
     ])->middleware('auth');
 
+    Route::put('/admin/settings/set_admin', [
+        'as' => 'settings.set_admin',
+        'uses' => 'SettingsController@set_admin'
+    ])->middleware('auth');
+
+    Route::put('/admin/settings/unset_admin', [
+        'as' => 'settings.unset_admin',
+        'uses' => 'SettingsController@unset_admin'
+    ])->middleware('auth');
+
 });
 
 
