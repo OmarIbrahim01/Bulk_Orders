@@ -190,7 +190,7 @@ class ProductsController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        session()->flash('message', 'Image Removed Successfully');
+        session()->flash('message', 'Product Removed Successfully');
         return redirect()->route('products.index');
     }
 }

@@ -67,57 +67,63 @@ Route::get('/my_orders', [
  /////////////Admin Routes///////////////////
 ////////////////////////////////////////////
 
-Route::get('/admin', [
-    'as' => 'admin.orders',
-    'uses' => 'AdminController@orders_index'
-])->middleware('auth');
+Route::middleware(['admin', 'auth'])->group(function () {
+
+    Route::get('/admin', [
+        'as' => 'admin.orders',
+        'uses' => 'AdminController@orders_index'
+    ])->middleware('auth');
 
 
-//Orders Routes
-Route::get('/admin/orders', [
-    'as' => 'admin_orders_index',
-    'uses' => 'AdminController@orders_index'
-])->middleware('auth');
+    //Orders Routes
+    Route::get('/admin/orders', [
+        'as' => 'admin_orders_index',
+        'uses' => 'AdminController@orders_index'
+    ])->middleware('auth');
 
-Route::get('/admin/orders/{id}', [
-    'as' => 'admin_orders_show',
-    'uses' => 'AdminController@orders_show'
-])->middleware('auth');
-
-
-
-//Customers
-Route::get('/admin/customers', [
-    'as' => 'admin_customer_index',
-    'uses' => 'AdminController@customers_index'
-])->middleware('auth');
-
-Route::get('/admin/customers/{id}', [
-    'as' => 'admin_customer_show',
-    'uses' => 'AdminController@customers_show'
-])->middleware('auth');
-
-//Products
-Route::resource('/admin/products', 'ProductsController');
-
-Route::delete('/admin/products/{image_id}/delete', [
-    'as' => 'delete.product.image',
-    'uses' => 'ProductsController@destroy_image'
-])->middleware('auth');
+    Route::get('/admin/orders/{id}', [
+        'as' => 'admin_orders_show',
+        'uses' => 'AdminController@orders_show'
+    ])->middleware('auth');
 
 
-//Settings
-Route::get('/admin/settings', [
-    'as' => 'settings.index',
-    'uses' => 'SettingsController@index'
-])->middleware('auth');
 
-Route::post('/admin/settings/set_min_quantity', [
-    'as' => 'settings.setQty',
-    'uses' => 'SettingsController@save_min_quantity'
-])->middleware('auth');
+    //Customers
+    Route::get('/admin/customers', [
+        'as' => 'admin_customer_index',
+        'uses' => 'AdminController@customers_index'
+    ])->middleware('auth');
+
+    Route::get('/admin/customers/{id}', [
+        'as' => 'admin_customer_show',
+        'uses' => 'AdminController@customers_show'
+    ])->middleware('auth');
+
+    //Products
+    Route::resource('/admin/products', 'ProductsController');
+
+    Route::delete('/admin/products/{image_id}/delete', [
+        'as' => 'delete.product.image',
+        'uses' => 'ProductsController@destroy_image'
+    ])->middleware('auth');
+
+
+    //Settings
+    Route::get('/admin/settings', [
+        'as' => 'settings.index',
+        'uses' => 'SettingsController@index'
+    ])->middleware('auth');
+
+    Route::post('/admin/settings/set_min_quantity', [
+        'as' => 'settings.setQty',
+        'uses' => 'SettingsController@save_min_quantity'
+    ])->middleware('auth');
+
+});
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
